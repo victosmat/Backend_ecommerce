@@ -23,23 +23,23 @@ def register_book(request):
             description = data.get('Description')
 
             if category_name and author_name and author_email and author_address and book_title and published_date and price and description:
-                requests.post('http://127.0.0.1:2100/books/categories/create/', json={
+                requests.post('http://127.0.0.1:8002/books/categories/create/', json={
                     "Category Name": category_name
                 }).json()
-                category_id = requests.post('http://127.0.0.1:2100/books/categories/search/', json={
+                category_id = requests.post('http://127.0.0.1:8002/books/categories/search/', json={
                     "Category Name": category_name
                 }).json()
-                requests.post('http://127.0.0.1:2100/books/authors/create/', json={
+                requests.post('http://127.0.0.1:8002/books/authors/create/', json={
                     "Author Name": author_name,
                     "Email": author_email,
                     "Address": author_address,
                 }).json()
-                author_id = requests.post('http://127.0.0.1:2100/books/authors/search/', json={
+                author_id = requests.post('http://127.0.0.1:8002/books/authors/search/', json={
                     "Author Name": author_name,
                     "Email": author_email,
                     "Address": author_address,
                 }).json()
-                book_id = requests.post('http://127.0.0.1:2100/books/books/create/', json={
+                book_id = requests.post('http://127.0.0.1:8002/books/books/create/', json={
                     "Author ID": author_id['data'][0]['id'],
                     "Category ID": category_id['data'][0]['id'],
                     "Title": book_title,

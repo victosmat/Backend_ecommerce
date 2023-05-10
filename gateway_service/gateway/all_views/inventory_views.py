@@ -9,7 +9,7 @@ def inititate_inventory(request):
         if 'application/json' in request.META['CONTENT_TYPE']:
             data = json.loads(request.body)
 
-            requests.post('http://127.0.0.1:8000/inventory/initiate/', json={}).json()
+            requests.post('http://127.0.0.1:8009/inventory/initiate/', json={}).json()
 
             address = data.get('Address')
             book_quant = data.get('Book Quantity')
@@ -17,7 +17,7 @@ def inititate_inventory(request):
             elec_quant = data.get('Electronic Quantity')
             status = data.get('Status')
 
-            data = requests.post('http://127.0.0.1:8000/inventory/initiate/', json={
+            data = requests.post('http://127.0.0.1:8009/inventory/initiate/', json={
                 "Address" : address,
                 "Book Quantity" : book_quant,
                 "Clothes Quantity" : clothes_quant,
@@ -42,7 +42,7 @@ def add_product_to_inventory(request):
             product_id = data.get('Product ID')
             quantity = data.get('Quantity')
 
-            data = requests.post('http://127.0.0.1:8000/inventory/add_product/', json={
+            data = requests.post('http://127.0.0.1:8009/inventory/add_product/', json={
                 "Product ID" : product_id,
                 "Quantity" : quantity
             }).json()
@@ -64,7 +64,7 @@ def remove_product_from_inventory(request):
             product_id = data.get('Product ID')
             quantity = data.get('Quantity')
 
-            data = requests.post('http://127.0.0.1:8000/inventory/remove_product/', json={
+            data = requests.post('http://127.0.0.1:8009/inventory/remove_product/', json={
                 "Product ID" : product_id,
                 "Quantity" : quantity
             }).json()
@@ -83,7 +83,7 @@ def show_inventory(request):
         if 'application/json' in request.META['CONTENT_TYPE']:
             data = json.loads(request.body)
 
-            inventory = requests.post('http://127.0.0.1:8000/inventory/show_inventory/', json={}).json()
+            inventory = requests.post('http://127.0.0.1:8009/inventory/show_inventory/', json={}).json()
 
             resp['status'] = 'Success'
             resp['status_code'] = '200'

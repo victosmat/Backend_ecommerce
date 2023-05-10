@@ -12,7 +12,7 @@ def track_order(request):
             # Lấy thông tin cart và sản phẩm cần thêm
             order_id = data.get('Order ID')
 
-            order = requests.post('http://127.0.0.1:3000/orders/show_order/', json={
+            order = requests.post('http://127.0.0.1:8008/orders/show_order/', json={
                 "Order ID" : order_id
             }).json()
 
@@ -34,12 +34,12 @@ def update_order(request):
             order_id = data.get('Order ID')
             status = data.get('Status')
 
-            requests.post('http://127.0.0.1:3000/orders/show_order/', json={
+            requests.post('http://127.0.0.1:8008/orders/show_order/', json={
                 "Order ID" : order_id,
                 'Status' : status
             }).json()
 
-            order = requests.post('http://127.0.0.1:3000/orders/show_order/', json={
+            order = requests.post('http://127.0.0.1:8008/orders/show_order/', json={
                 "Order ID" : order_id
             }).json()
 

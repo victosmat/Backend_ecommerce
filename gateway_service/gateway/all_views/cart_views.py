@@ -13,7 +13,7 @@ def add_product_to_cart(request):
             product_id = data.get('Product ID')
             quantity = data.get('Quantity')
 
-            data = requests.post('http://127.0.0.1:5000/carts/add_item_to_cart/', json={
+            data = requests.post('http://127.0.0.1:8005/carts/add_item_to_cart/', json={
                 "User ID" : user_id,
                 "Product ID" : product_id,
                 "Quantity" : quantity
@@ -38,7 +38,7 @@ def remove_item_from_cart(request):
             product_id = data.get('Product ID')
             quantity = data.get('Quantity')
 
-            data = requests.post('http://127.0.0.1:5000/carts/remove_item_from_cart/', json={
+            data = requests.post('http://127.0.0.1:8005/carts/remove_item_from_cart/', json={
                 "User ID" : user_id,
                 "Product ID" : product_id,
                 "Quantity" : quantity
@@ -61,7 +61,7 @@ def show_cart(request):
             # Lấy thông tin cart và sản phẩm cần thêm
             user_id = data.get('User ID')
 
-            cart = requests.post('http://127.0.0.1:5000/carts/show_cart/', json={
+            cart = requests.post('http://127.0.0.1:8005/carts/show_cart/', json={
                 "User ID" : user_id
             }).json()
 
@@ -83,11 +83,11 @@ def purchase(request):
             # Lấy thông tin cart và sản phẩm cần thêm
             user_id = data.get('User ID')
 
-            order_id = requests.post('http://127.0.0.1:3000/orders/create_order/', json={
+            order_id = requests.post('http://127.0.0.1:8005/orders/create_order/', json={
                 "User ID" : user_id
             }).json()
 
-            requests.post('http://127.0.0.1:5000/carts/clear_cart/', json={
+            requests.post('http://127.0.0.1:8005/carts/clear_cart/', json={
                 "User ID" : user_id
             }).json()
 
