@@ -20,21 +20,21 @@ def register(request):
             last_name = data.get('Last Name')
 
             if username and password and email and address and city and country and first_name and last_name:
-                address_id = requests.post('http://127.0.0.1:4000/users/create_address/', json={
+                address_id = requests.post('http://127.0.0.1:8000/users/create_address/', json={
                     "Address" : address,
                     "City" : city,
                     "Country" : country
                 }).json()
-                fullname_id = requests.post('http://127.0.0.1:4000/users/create_fullname/', json={
+                fullname_id = requests.post('http://127.0.0.1:8000/users/create_fullname/', json={
                     "First Name" : first_name,
                     "Last Name" : last_name
                 }).json()
-                account_id = requests.post('http://127.0.0.1:4000/users/create_account/', json={
+                account_id = requests.post('http://127.0.0.1:8000/users/create_account/', json={
                     "Username" : username,
                     "Password" : password,
                     "Email" : email
                 }).json()
-                customer_id = requests.post('http://127.0.0.1:4000/users/create_customer/', json={
+                customer_id = requests.post('http://127.0.0.1:8000/users/create_customer/', json={
                     "Address ID" : address_id['data']['Address ID'],
                     "Fullname ID" : fullname_id['data']['Fullname ID'],
                     "Account ID" : account_id['data']['Account ID']
