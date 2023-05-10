@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../product_service"
+		},
+		{
+			"path": "../shipment_service"
+		},
+		{
+			"path": "../user_service"
+		}
+	]
+}
